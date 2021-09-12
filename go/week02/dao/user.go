@@ -21,7 +21,7 @@ func GetUserInfo(userId int64) (User, error) {
 
 	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3306)/pfs?charset=utf8")
 	if err != nil {
-		fmt.Println(err)
+		return user, fmt.Errorf("%w", err)
 	}
 	defer db.Close()
 
